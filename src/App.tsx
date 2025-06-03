@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './AuthContext';
+import { Routes, Route } from 'react-router-dom';
 import ChampionSelection from './pages/ChampionSelection';
 import OpponentSelection from './pages/OpponentSelection';
 import MatchupDetails from './pages/MatchupDetails';
@@ -8,16 +7,12 @@ import MatchupHistory from './pages/MatchupHistory';
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<ChampionSelection />} />
-          <Route path="/opponent/:playerChampion" element={<OpponentSelection />} />
-          <Route path="/matchup/:playerChampion/:opponentChampion" element={<MatchupDetails />} />
-          <Route path="/notes/:playerChampion/:opponentChampion/:isEditing" element={<NotesForm />} />
-          <Route path="/history" element={<MatchupHistory />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
+    <Routes>
+      <Route path="/" element={<ChampionSelection />} />
+      <Route path="/opponent/:playerChampion" element={<OpponentSelection />} />
+      <Route path="/matchup/:playerChampion/:opponentChampion" element={<MatchupDetails />} />
+      <Route path="/notes/:playerChampion/:opponentChampion/:isEditing" element={<NotesForm />} />
+      <Route path="/history" element={<MatchupHistory />} />
+    </Routes>
   );
 }
